@@ -21,12 +21,19 @@ Route::get('/contact', function () {
 // --Articulos--
 Route::get('articulo/eliminar/{id}','ArticuloController@destroy');
 Route::resource('articulo','ArticuloController');
+
 // --Tipos_Recetas--
-Route::get('tipoReceta/eliminar/{id}','TipoRecetaController@destroy');
 Route::resource('tipoReceta','TipoRecetaController');
+Route::get('tipoReceta/eliminar/{id}','TipoRecetaController@destroy');
+
 // --Recetas--
+
 Route::resource('receta','RecetaController');
 Route::get('receta/eliminar/{id}','RecetaController@destroy');
+
+
+
+
 // ---Controllers---
 //Controles de logueo y registro
 Route::controllers([

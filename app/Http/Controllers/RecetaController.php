@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\TipoReceta;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -23,6 +24,12 @@ class RecetaController extends Controller
     {
          $receta = Receta::all();
          return view('receta.index',compact('receta'));
+//        $receta = DB::table('recetas')
+//            ->join('tipos_recetas', 'recetas.id_tipo_receta', '=', 'tipos_recetas.id')
+//            ->select()
+//            ->get();
+
+//        return view('receta.index',compact('receta'));
 
     }
 
@@ -33,7 +40,10 @@ class RecetaController extends Controller
      */
     public function create()
     {
-        return view('receta.create');
+        //return "sadsadsads";
+        $tiporeceta= TipoReceta::lists('descripcion', 'id');
+
+        return view('/receta.create', compact('tiporeceta') );
     }
 
     /**
@@ -45,16 +55,21 @@ class RecetaController extends Controller
     public function store(Request $request)
     {
          //id, descripcion_r, precio, costo,id_tipo_receta
-        $receta = new Receta;
+       /* $receta = new Receta;
 
         $receta->descripcion_r = $request->descripcion_r;
         $receta->precio = $request->precio;
         $receta->costo = $request->costo; 
         $receta->id_tipo_receta = $request->id_tipo_receta; 
         
-        $receta->save();
+        $receta->save();*/
 
-         return redirect('/receta')->with('message','receta guardado correctamente ');
+
+        Receta::create($request->all());
+
+        return redirect('/receta')->with('message','receta guardado correctamente ');
+
+
     }
 
     /**
@@ -105,9 +120,8 @@ class RecetaController extends Controller
      */
     public function destroy($id)
     {
-        $receta = Receta::find($id);
-        $receta->delete();
+        Receta::destroy($id);
         Session::flash('message','receta eliminado correctamente');
-        return Redirect::to('receta');
+        return redirect('receta');
     }
 }

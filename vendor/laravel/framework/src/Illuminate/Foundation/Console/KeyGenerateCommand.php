@@ -35,7 +35,7 @@ class KeyGenerateCommand extends Command
             return $this->line('<comment>'.$key.'</comment>');
         }
 
-        $path = base_path('.env');
+        $path = base_path('.env2');
 
         if (file_exists($path)) {
             file_put_contents($path, str_replace(

@@ -3,7 +3,7 @@
 /**
  * Dotenv.
  *
- * Loads a `.env` file in the given directory and sets the environment vars.
+ * Loads a `.env2` file in the given directory and sets the environment vars.
  */
 class Dotenv
 {
@@ -15,17 +15,17 @@ class Dotenv
     protected static $immutable = true;
 
     /**
-     * Load `.env` file in given directory.
+     * Load `.env2` file in given directory.
      *
      * @param string $path
      * @param string $file
      *
      * @return void
      */
-    public static function load($path, $file = '.env')
+    public static function load($path, $file = '.env2')
     {
         if (!is_string($file)) {
-            $file = '.env';
+            $file = '.env2';
         }
 
         $filePath = rtrim($path, '/').'/'.$file;
