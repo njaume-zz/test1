@@ -9,7 +9,7 @@ Crear tipoReceta
 {!!Form::open(['route'=>'tipoReceta.store','method'=>'POST'])!!}
 	<div class="form-group" >
 		{!!Form::label('Nombre: ')!!}
-		{!!Form::text('descripcion',null,['class'=>'form-control','placeholder'=>'Nombre receta','autofocus'])!!}
+		{!!Form::text('descripcion_r',null,['class'=>'form-control','placeholder'=>'Nombre receta','autofocus'])!!}
 	</div>
 	<div class="form-group" >
 		{!!Form::label('Tiempo de prepracion: ')!!}
