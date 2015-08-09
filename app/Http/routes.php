@@ -27,4 +27,4 @@ Route::get('/articulos', function () {
     return view('articulo.index');
 });
 
-
+Route::resource('articulo','ArticuloController');
