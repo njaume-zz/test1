@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\TipoReceta;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -27,8 +26,7 @@ class RecetaController extends Controller
         $receta = DB::table('recetas')
             ->join('tipos_recetas', 'recetas.id_tipo_receta', '=', 'tipos_recetas.id')
             ->select()
-            ->get();
-
+            ->get();    
         return view('receta.index',compact('receta'));
 
     }
@@ -40,9 +38,7 @@ class RecetaController extends Controller
      */
     public function create()
     {
-        $tiporeceta= TipoReceta::lists('descripcion', 'id');
-
-        return view('receta.create', compact('tiporeceta') );
+        return view('receta.create');
     }
 
     /**
@@ -54,21 +50,16 @@ class RecetaController extends Controller
     public function store(Request $request)
     {
          //id, descripcion_r, precio, costo,id_tipo_receta
-       /* $receta = new Receta;
+        $receta = new Receta;
 
         $receta->descripcion_r = $request->descripcion_r;
         $receta->precio = $request->precio;
         $receta->costo = $request->costo; 
         $receta->id_tipo_receta = $request->id_tipo_receta; 
         
-        $receta->save();*/
+        $receta->save();
 
-
-        Receta::create($request->all());
-
-        return redirect('/receta')->with('message','receta guardado correctamente ');
-
-
+         return redirect('/receta')->with('message','receta guardado correctamente ');
     }
 
     /**

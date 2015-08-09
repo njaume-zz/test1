@@ -13,18 +13,15 @@ Listado receta
 			<th>Nombre</th>
 			<th>Precio</th>
 			<th>Costo</th>
-			<th>Tipo de receta</th>
+			<th>id_tipo_receta</th>
 			<th>Operaciones</th>
 		</thead>
 		@foreach ($receta as $u)
-
-
-
-			<tbody>
+		<tbody>
 			<td>{{$u->descripcion_r}}</td>
 			<td>{{$u->precio}}</td>
 			<td>{{$u->costo}}</td>
-			<td>{{ $u->id_tipo_receta}}</td>
+			<td>{{$u->descripcion}}</td>
 			<td>
 <a href="receta/{{$u->id}}/edit" class= "btn btn-primary" method="post">Editar <span class="glyphicon glyphicon-pencil"></span> </a>
 <a href="receta/eliminar/{{$u->id}}" class= "btn btn-danger" method="post">Eliminar <span class="glyphicon glyphicon-remove"></span> </a>

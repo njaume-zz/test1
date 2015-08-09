@@ -3,35 +3,25 @@
 @section('content')
 
 <div align="center">
-Crear receta
+Crear tipoReceta
 </div>
 
-{!!Form::open(['action'=>'RecetaController@store', 'method'=>'POST'])!!}
+{!!Form::open(['route'=>'tipoReceta.store','method'=>'POST'])!!}
 	<div class="form-group" >
 		{!!Form::label('Nombre: ')!!}
 		{!!Form::text('descripcion_r',null,['class'=>'form-control','placeholder'=>'Nombre receta','autofocus'])!!}
 	</div>
 	<div class="form-group" >
-		{!!Form::label('Precio: ')!!}
-		{!!Form::text('precio',null,['class'=>'form-control','placeholder'=>'Precio del plato'])!!}
+		{!!Form::label('Tiempo de prepracion: ')!!}
+		{!!Form::text('tiempo_preparacion',null,['class'=>'form-control','placeholder'=>'tiempo cocina del plato'])!!}
 	</div>
 	<div class="form-group" >
-		{!!Form::label('Costo: ')!!}
-		{!!Form::text('costo',null,['class'=>'form-control','placeholder'=>'Costo?'])!!}
-	</div>
+		{!!Form::label('Cocina: ')!!}
+		{!!Form::text('cocina',null,['class'=>'form-control','placeholder'=>'cocin?'])!!}
+	</div>		
 
-	<div class="form-group">
-
-		{!! Form::label('Tipo de receta :') !!}
-
-		{!! Form::select( 'id_tipo_receta' , $tiporeceta,  null,  ['id' => 'tiporeceta', 'class' => 'form-control'] ) !!}
-
-
-	</div>
-
-
-
-{!!Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
+		
+	{!!Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
 
 	<input type="button" value="Cancelar" class="btn btn-danger" onclick= "self.location.href = '../tipoReceta' "/>
 
