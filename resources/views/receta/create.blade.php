@@ -6,7 +6,7 @@
 Crear tipoReceta
 </div>
 
-{!!Form::open(['route'=>'tipoReceta.store','method'=>'POST'])!!}
+{!!Form::open(['route'=>'receta.store','method'=>'POST'])!!}
 	<div class="form-group" >
 		{!!Form::label('Nombre: ')!!}
 		{!!Form::text('descripcion_r',null,['class'=>'form-control','placeholder'=>'Nombre receta','autofocus'])!!}
@@ -23,7 +23,7 @@ Crear tipoReceta
 		
 	{!!Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
 
-	<input type="button" value="Cancelar" class="btn btn-danger" onclick= "self.location.href = '../tipoReceta' "/>
+	<input type="button" value="Cancelar" class="btn btn-danger" onclick= "self.location.href = '../receta' "/>
 
 {!!Form::close()!!}
 

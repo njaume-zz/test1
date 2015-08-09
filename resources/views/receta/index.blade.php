@@ -23,8 +23,8 @@ Listado receta
 			<td>{{$u->costo}}</td>
 			<td>{{$u->descripcion}}</td>
 			<td>
-<a href="receta/{{$u->id}}/edit" class= "btn btn-primary" method="post">Editar <span class="glyphicon glyphicon-pencil"></span> </a>
-<a href="receta/eliminar/{{$u->id}}" class= "btn btn-danger" method="post">Eliminar <span class="glyphicon glyphicon-remove"></span> </a>
+<a href="{{$url = action('RecetaController@edit',$u->id)}}" class= "btn btn-primary">Editar <span class="glyphicon glyphicon-pencil"></span> </a>
+<a href="{{$url = action('RecetaController@destroy',$u->id)}}" class= "btn btn-danger">Eliminar <span class="glyphicon glyphicon-remove"></span> </a>
 
 		</td>
 		</tbody>

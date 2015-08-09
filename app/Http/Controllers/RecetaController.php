@@ -21,13 +21,8 @@ class RecetaController extends Controller
      */
     public function index()
     {
-        // $receta = Receta::all();
-        // return view('receta.index',compact('receta'));
-        $receta = DB::table('recetas')
-            ->join('tipos_recetas', 'recetas.id_tipo_receta', '=', 'tipos_recetas.id')
-            ->select()
-            ->get();    
-        return view('receta.index',compact('receta'));
+         $receta = Receta::all();
+         return view('receta.index',compact('receta'));
 
     }
 
@@ -110,7 +105,8 @@ class RecetaController extends Controller
      */
     public function destroy($id)
     {
-        Receta::destroy($id);
+        $receta = Receta::find($id);
+        $receta->delete();
         Session::flash('message','receta eliminado correctamente');
         return Redirect::to('receta');
     }

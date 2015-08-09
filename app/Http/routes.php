@@ -25,10 +25,8 @@ Route::resource('articulo','ArticuloController');
 Route::get('tipoReceta/eliminar/{id}','TipoRecetaController@destroy');
 Route::resource('tipoReceta','TipoRecetaController');
 // --Recetas--
-Route::get('receta/eliminar/{id}','RecetaController@destroy');
 Route::resource('receta','RecetaController');
-
-
+Route::get('receta/eliminar/{id}','RecetaController@destroy');
 // ---Controllers---
 //Controles de logueo y registro
 Route::controllers([
