@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('master');
 });
+
+Route::get('/recetas', function () {
+    return view('receta.index');
+});
+
+Route::get('/tipoRecetas', function () {
+    return view('tipoReceta.index');
+});
+
