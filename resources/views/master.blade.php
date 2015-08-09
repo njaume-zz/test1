@@ -60,7 +60,7 @@
                         <li> <a href="{{ url('/receta') }} ">Recetas</a> </li>
                         <li> <a href="{{ url('/tipoReceta') }} ">Tipos Recetas</a> </li>
                         <li> <a href="{{ url('/contact') }} ">Contact</a> </li>
-                        <li> <a href="{{ url('/about') }} ">About</a> </li>                        
+                        <li> <a href="{{ url('/about') }} ">About</a> </li>
                     @endif
                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
@@ -72,7 +72,7 @@
                             <a href=" #" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                 <li><a id="logout" href="{{ url('/auth/logout') }}" ><span class="glyphicon glyphicon-log-out" aria-hidden="true"> </span> Logout</a></li>
-                            </ul>  
+                            </ul>
                         </li>
                     @endif
                 </ul>
@@ -88,20 +88,32 @@
 
 
     <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="container-fluid">
-@yield('content')
-<hr>
-        </div>
-    </div>
-</div>
+
+
+        <div class="container">
+
+               @include('partials.flash')
+
+                <div class="row">
+                    <div class="container-fluid">
+                     @yield('content')
+                       <hr>
+                    </div>
+                </div>
+            </div>
 
     <hr>
 
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+     <script>
+
+             $('div.alert').not('alert-important').delay(3000).slideUp(300);
+
+    </script>
 
 
 </body>
