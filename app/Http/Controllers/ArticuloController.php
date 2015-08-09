@@ -102,6 +102,8 @@ class ArticuloController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Articulo::destroy($id);
+        Session::flash('message','Articulo eliminado correctamente');
+        return Redirect::to('articulo');
     }
 }
