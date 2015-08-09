@@ -53,13 +53,14 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
                     @if (Auth::guest())
-                        <li> <a href="{{ url('/') }} ">News</a> </li>
                         <li> <a href="{{ url('/contact') }} ">Contact</a> </li>
                         <li> <a href="{{ url('/about') }} ">About</a> </li>
                     @else
-                        <li> <a href="{{ url('/post') }} ">Posts</a> </li>
-                        <li> <a href="{{ url('/about') }} ">About</a> </li>
+                        <li> <a href="{{ url('/articulo') }} ">Articulos</a> </li>
+                        <li> <a href="{{ url('/receta') }} ">Recetas</a> </li>
+                        <li> <a href="{{ url('/tipoReceta') }} ">Tipos Recetas</a> </li>
                         <li> <a href="{{ url('/contact') }} ">Contact</a> </li>
+                        <li> <a href="{{ url('/about') }} ">About</a> </li>                        
                     @endif
                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
@@ -87,20 +88,20 @@
 
 
     <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="container-fluid">
+<div class="container">
+    <div class="row">
+        <div class="container-fluid">
 @yield('content')
 <hr>
-            </div>
         </div>
     </div>
+</div>
 
     <hr>
 
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 
 </body>

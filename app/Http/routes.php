@@ -1,38 +1,37 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
+// ---Getters---
+// PRIMER VISTA, LOGEO
 Route::get('/', function () {
-    return view('master');
+    return view('auth/login');
+});
+//SI PASA EL LOGEO--->HOME, con las demas opc para direcciones
+Route::get('/home', function () {
+    return view('welcome');
+});
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/contact', function () {
+    return view('contact');
 });
 
-Route::get('/recetas', function () {
-    return view('receta.index');
-});
 
-Route::get('/tipoRecetas', function () {
-    return view('tipoReceta.index');
-});
-
-Route::get('/articulos', function () {
-    return view('articulo.index');
-});
-
-Route::resource('articulo','ArticuloController');
+// ---Resources---
+// --Articulos--
 Route::get('articulo/eliminar/{id}','ArticuloController@destroy');
-
-Route::resource('tipoReceta','TipoRecetaController');
+Route::resource('articulo','ArticuloController');
+// --Tipos_Recetas--
 Route::get('tipoReceta/eliminar/{id}','TipoRecetaController@destroy');
-
-Route::resource('receta','RecetaController');
+Route::resource('tipoReceta','TipoRecetaController');
+// --Recetas--
 Route::get('receta/eliminar/{id}','RecetaController@destroy');
+Route::resource('receta','RecetaController');
 
+
+// ---Controllers---
+//Controles de logueo y registro
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);

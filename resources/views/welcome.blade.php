@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
+@extends('master')
+
+@section('content')
+
     <head>
         <title>Laravel</title>
-
-        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
+        
         <style>
-            html, body {
+            body {
                 height: 100%;
             }
-
             body {
                 margin: 0;
                 padding: 0;
@@ -26,6 +25,8 @@
             }
 
             .content {
+                
+                padding-top: 2cm;
                 text-align: center;
                 display: inline-block;
             }
@@ -39,7 +40,11 @@
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
+                {{Auth::user()->id}}<br>
+                {{Auth::user()->name}}<br>
+                {{Auth::user()->email}}<br>
+                {{Auth::user()->password}}<br>
             </div>
         </div>
     </body>
-</html>
+@endsection

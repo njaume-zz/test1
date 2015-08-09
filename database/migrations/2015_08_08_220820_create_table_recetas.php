@@ -14,7 +14,7 @@ class CreateTableRecetas extends Migration
     {
         Schema::create('recetas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descripcion');
+            $table->string('descripcion_r');
             $table->float('precio');
             $table->float('costo');
             $table->integer('id_tipo_receta')->unsigned();
