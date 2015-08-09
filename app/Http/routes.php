@@ -29,3 +29,5 @@ Route::get('/articulos', function () {
 
 Route::resource('articulo','ArticuloController');
 Route::get('articulo/eliminar/{id}','ArticuloController@destroy');
+
+Route::resource('tipoReceta','TipoRecetaController');

@@ -3,42 +3,39 @@
 @section('content')
 
 <div align="center">
-Listado Tipo Recetas
+Listado tipoReceta
 </div>
 
 <div class="container">
-	<div class="container">
-		<table class="table" >
-			<thead >
-				<th width="200px">ID</th>
-				<th width="250px">Nombre</th>
-				<th width="250px">otro campo</th>
-				<th width="150px">Operaciones</th>
-			</thead>
-			@foreach ($event as $u)
-			<tbody>
-				<td>{{$u->id}}</td>
-				<td>{{$u->nombre}}</td>
-				<td>{{$u->event_desc}}</td>
-				<td>
-				{!!link_to_route('event.edit', $title = 'Editar', $parameters = $u->id, $attributes = ['class'=>'btn btn-primary'])!!}
-			{!!link_to_route('event.index', $title='Eliminar', $parameters = $u->id, $attributes = ['class'=>'btn btn-danger'])!!}
-			
-				<!-- ya me hace de una la indexacion del us con su id corresp, y eso se lo paso a usuario.editar -->
-			</td>
-			</tbody>
-			@endforeach
 
-		</table>
+	<table class="table">
+		<thead>
+			<th>Nombre</th>
+			<th>tiempo de preparacion</th>
+			<th>cocina?</th>
+			<th>Operaciones</th>
+		</thead>
+		@foreach ($tipoReceta as $u)
+		<tbody>
+			<td>{{$u->descripcion}}</td>
+			<td>{{$u->tiempo_preparacion}}</td>
+			<td>{{$u->cocina}}</td>
+			<td>
+<a href="tipoReceta/{{$u->id}}/edit" class= "btn btn-primary" method="post">Editar <span class="glyphicon glyphicon-pencil"></span> </a>
+<a href="tipoReceta/eliminar/{{$u->id}}" class= "btn btn-danger" method="post">Eliminar <span class="glyphicon glyphicon-remove"></span> </a>
 
-	</br>
-	<a href="event/create" class= "btn btn-primary">New Event <span class="glyphicon glyphicon-plus"></span></a>
-	{{-- <a class="btn btn-warning"> Modify Event </a>
-	<a class="btn btn-danger"> Delete Event </a> --}}
+		</td>
+		</tbody>
+		@endforeach
 
-	</br>
-	</div>	
+	</table>
 </div>
+
+<div class="container" >
+	<a href="tipoReceta/create" class= "btn btn-primary">Crear tipoReceta <span class="glyphicon glyphicon-plus"></span></a>
+</div>	
+</div>
+	
 
 
 

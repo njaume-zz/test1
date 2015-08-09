@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Articulo;
+use App\TipoReceta;
 use Session;
 use Redirect;
 
-class ArticuloController extends Controller
+class TipoRecetaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +19,8 @@ class ArticuloController extends Controller
      */
     public function index()
     {
-        $articulo = Articulo::all();
-        return view('articulo.index',compact('articulo'));
+        $tipoReceta = TipoReceta::all();
+        return view('tipoReceta.index',compact('tipoReceta'));
     }
 
     /**
@@ -30,7 +30,7 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        return view('articulo.create');
+        return view('tipoReceta.create');
     }
 
     /**
@@ -41,16 +41,15 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-        //se puede hacer con $request->all tamb
-        $articulo = new Articulo;
+        $tipoReceta = new TipoReceta;
 
-        $articulo->descripcion = $request->descripcion;
-        $articulo->stock = $request->stock;
-        $articulo->unidad_medida = $request->unidad_medida; 
+        $tipoReceta->descripcion = $request->descripcion;
+        $tipoReceta->tiempo_preparacion = $request->tiempo_preparacion;
+        $tipoReceta->cocina = $request->cocina; 
         
-        $articulo->save();
+        $tipoReceta->save();
 
-         return redirect('/articulo')->with('message','articulo guardado correctamente ');
+         return redirect('/tipoReceta')->with('message','tipoReceta guardado correctamente ');
     }
 
     /**
@@ -72,8 +71,8 @@ class ArticuloController extends Controller
      */
     public function edit($id)
     {
-        $articulo = Articulo::find($id);
-        return view('articulo.edit', ['articulo'=>$articulo]);
+        $tipoReceta = TipoReceta::find($id);
+        return view('tipoReceta.edit', ['tipoReceta'=>$tipoReceta]);
     }
 
     /**
@@ -85,13 +84,12 @@ class ArticuloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $articulo = Articulo::find($id);
-        $articulo->fill($request->all());
-        $articulo->save();
+        $tipoReceta = TipoReceta::find($id);
+        $tipoReceta->fill($request->all());
+        $tipoReceta->save();
 
-        Session::flash('message','articulo editado correctamente');
-        return Redirect::to('/articulo');
-
+        Session::flash('message','tipoReceta editado correctamente');
+        return Redirect::to('/tipoReceta');
     }
 
     /**
@@ -102,8 +100,8 @@ class ArticuloController extends Controller
      */
     public function destroy($id)
     {
-        Articulo::destroy($id);
-        Session::flash('message','Articulo eliminado correctamente');
-        return Redirect::to('articulo');
+        TipoReceta::destroy($id);
+        Session::flash('message','tipoReceta eliminado correctamente');
+        return Redirect::to('tipoReceta');
     }
 }
