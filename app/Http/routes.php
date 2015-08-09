@@ -23,3 +23,8 @@ Route::get('/tipoRecetas', function () {
     return view('tipoReceta.index');
 });
 
+Route::get('/articulos', function () {
+    return view('articulo.index');
+});
+
+
