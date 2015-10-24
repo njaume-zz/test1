@@ -5,7 +5,7 @@ APP_KEY=8XuKfu9oMPo0iS38Wza9XbLvF2veqsLE
 DB_HOST=localhost
 DB_DATABASE=pedidos
 DB_USERNAME=root
-DB_PASSWORD=elestribo
+DB_PASSWORD=""
 
 CACHE_DRIVER=file
 SESSION_DRIVER=file
