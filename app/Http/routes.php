@@ -13,7 +13,8 @@ Route::get('/about', function () {
     return view('about');
 });
 Route::get('/contact', function () {
-    return view('contact');
+    return view('contacto');
+    //return Response::view('contact2');
 });
 
 
@@ -31,6 +32,9 @@ Route::get('tipoReceta/eliminar/{id}','TipoRecetaController@destroy');
 Route::resource('receta','RecetaController');
 Route::get('receta/eliminar/{id}','RecetaController@destroy');
 
+
+// --Mail--
+Route::resource('mail','MailController');
 
 
 
